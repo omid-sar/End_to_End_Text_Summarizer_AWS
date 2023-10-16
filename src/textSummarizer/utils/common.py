@@ -5,6 +5,7 @@ from textSummarizer.logging import logger
 from ensure import ensure_annotations
 from box import ConfigBox
 from typing import Any
+from pathlib import Path
 
 
 
@@ -47,6 +48,7 @@ def create_directories(path_to_directories: list, verbose=True):
         os.makedirs(path, exist_ok=True)
         if verbose:
             logger.info(f"created directory at: {path}")
+
 
 
 
