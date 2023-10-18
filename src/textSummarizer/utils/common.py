@@ -64,3 +64,31 @@ def get_size(path: Path) -> str:
     return f"~ {size_in_kb} KB"
 
     
+
+    # ... [Your previous imports]
+
+class DirectoryTree:
+    def __init__(self, root_path: Path):
+        self.root_path = root_path
+        self.tree = []
+
+    def _generate_tree(self, directory: Path, level: int = 0):
+        """Helper recursive function to generate tree."""
+        indent = "  " * level
+        self.tree.append(f"{indent}{directory.name}/\n")
+
+        for item in directory.iterdir():
+            if item.is_dir():
+                self._generate_tree(item, level + 1)
+            else:
+                self.tree.append(f"{indent}  {item.name}\n")
+
+    def write_to_file(self, file_output_name: str = "output.txt"):
+        """Writes the tree structure to a file."""
+        self._generate_tree(self.root_path)
+
+        with open(file_output_name, 'w') as output_file:
+            output_file.writelines(self.tree)
+
+# ... [Your previous functions]
+
