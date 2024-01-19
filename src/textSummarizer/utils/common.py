@@ -65,7 +65,7 @@ def get_size(path: Path) -> str:
 
     
 
-    # ... [Your previous imports]
+ 
 
 class DirectoryTree:
     def __init__(self, root_path: Path):
@@ -90,5 +90,5 @@ class DirectoryTree:
         with open(file_output_name, 'w') as output_file:
             output_file.writelines(self.tree)
 
-# ... [Your previous functions]
+
 
